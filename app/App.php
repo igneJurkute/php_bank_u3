@@ -5,16 +5,30 @@ namespace Bank;
 use Bank\Controllers\AccountsController;
 use Bank\Controllers\HomeController;
 use Bank\Controllers\LoginController;
+use Bank\FileWriter;
+use Bank\DatabaseWriter;
 
-class App {
+class App
+{
+
+    const DB = 'database';
 
     static public function start()
     {
 
         $url = explode('/', $_SERVER['REQUEST_URI']);
         array_shift($url);
-
         return self::router($url);
+    }
+
+    static public function get($table)
+    {
+        if (self::DB == 'file') {
+            return new FileWriter($table);
+        }
+        elseif (self::DB == 'database') {
+            return new DatabaseWriter($table);
+        }
     }
 
     static private function router($url)
@@ -41,7 +55,6 @@ class App {
             die;
         }
         // Auth middleware END
-
 
         // Account START
         if ($_SERVER['REQUEST_METHOD'] == 'GET' && count($url) == 1 && $url[0] == 'accounts') {
@@ -94,4 +107,30 @@ class App {
 
         return ob_get_clean();
     }
+
+    static public function redirect($url)
+    {
+        header('Location: ' . $url);
+        // die;
+    }
+
+    static public function json($data)
+    {
+        header('Content-Type: application/json');
+        return json_encode($data);
+    }
+
+    static public function render($path, $data = null)
+    {
+        if ($data) {
+            extract($data);
+        }
+
+        ob_start();
+
+        require __DIR__ . '/../views/' . $path . '.php';
+
+        return ob_get_clean();
+    }
+
 }

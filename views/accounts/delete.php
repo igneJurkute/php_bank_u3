@@ -7,20 +7,20 @@
     <form class="w3-card w3-container" style="width:50%;" action="/accounts/destroy/<?= $id ?>" method="post">
 
         <div class="w3-container" style="display: flex; flex-direction: column;">
-            <h3><?= $firstName ?> <?= $lastName ?></h3>
+            <h3><?= $first_name ?> <?= $last_name ?></h3>
         </div>
         <div class="w3-container" style="display: flex; flex-direction: column;">
             <p>Account number</p>
             <p class="w3-input"><?= $iban ?></p>
         </div>
         <div class="w3-container" style="display: flex; flex-direction: column;">
-            <p>Balansas</p>
+            <p>Balance</p>
             <p class="w3-input"><?= $balance ?> €</p>
         </div>
 
         <div class="w3-padding">
-            <button class="w3-btn w3-lime" type="submit">Delete</button>
-            <button class="w3-btn w3-red">
+            <button style="border-radius: 20px" class="w3-btn w3-lime" type="submit">Delete</button>
+            <button style="border-radius: 20px" class="w3-btn w3-red">
                 <a href="/accounts">Cancel</a>
             </button>
         </div>

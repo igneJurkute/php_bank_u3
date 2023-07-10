@@ -1,4 +1,4 @@
-<div class="w3-container w3-margin">
+<div style="background-color: #D3FFD3" class="w3-container w3-margin">
 
     <h1 class="w3-card w3-teal w3-padding" style="text-align: center">Accounts list</h1>
 
@@ -16,19 +16,19 @@
             </tr>
             <?php foreach ($accounts as $account) : ?>
                 <tr>
-                    <td style="line-height: 35px;"><?= $account['firstName'] ?></td>
-                    <td style="line-height: 35px;"><?= $account['lastName'] ?></td>
-                    <td style="line-height: 35px;"><?= $account['personalId'] ?></td>
+                    <td style="line-height: 35px;"><?= $account['first_name'] ?></td>
+                    <td style="line-height: 35px;"><?= $account['last_name'] ?></td>
+                    <td style="line-height: 35px;"><?= $account['personal_id'] ?></td>
                     <td style="line-height: 35px;"><?= $account['iban'] ?></td>
                     <td style="line-height: 35px;"><?= $account['balance'] ?><span> €</span></td>
                     <td>
-                        <button class="w3-btn w3-lime">
-                            <a href="/accounts/edit/<?= $account['id'] ?>">Edit balance</a>
+                        <button style="border-radius: 20px" class="w3-btn w3-lime">
+                            <a style="text-decoration: none" href="/accounts/edit/<?= $account['id'] ?>">Edit balance</a>
                         </button>
                     </td>
                     <td>
-                        <button class="w3-btn w3-red">
-                            <a href="/accounts/delete/<?= $account['id'] ?>">Delete account</a>
+                        <button style="border-radius: 20px" class="w3-btn w3-red">
+                            <a style="text-decoration: none" href="/accounts/delete/<?= $account['id'] ?>">Delete account</a>
                         </button>
                     </td>
                 </tr>

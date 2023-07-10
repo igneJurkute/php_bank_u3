@@ -6,7 +6,7 @@
 
     <form class="w3-card w3-container" style="width:50%;" action="/accounts/update/<?= $id ?>" method="post">
         <div class="w3-container" style="display: flex; flex-direction: column;">
-            <h3><?= $firstName ?> <?= $lastName ?></h3>
+            <h3><?= $first_name ?> <?= $last_name ?></h3>
         </div>
         <div class="w3-container" style="display: flex; flex-direction: column;">
             <p>Account number</p>
@@ -23,8 +23,8 @@
         </div>
 
         <div class="w3-padding">
-            <button class="w3-btn w3-lime" type="submit" name="add" value=1>Add</button>
-            <button class="w3-btn w3-red" type="submit" name="withdraw" value=1>Withdraw</button>
+            <button style="border-radius: 20px" class="w3-btn w3-lime" type="submit" name="add" value=1>Add</button>
+            <button style="border-radius: 20px" class="w3-btn w3-red" type="submit" name="withdraw" value=1>Withdraw</button>
         </div>
     </form>
 
